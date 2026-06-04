@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://4sh2dshqr7k1"]
+
+[ext_resource type="PackedScene" uid="uid://u2xnrkkb0i6f" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://bo7n13viq4gn0" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://daxau863en5sh" path="res://player/reticle.png" id="3_g1dw6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqu6x"]
+
+[node name="Player" type="CharacterBody3D" unique_id=425597721]
+script = ExtResource("1_rkbax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1335042449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=958394978]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4586644, 0)
+
+[node name="gun_model" parent="Camera3D" unique_id=647187664 instance=ExtResource("1_oul6g")]
+transform = Transform3D(-0.66, 0, 6.119594e-08, 0, 0.7, 0, -5.7699037e-08, 0, -0.7, 0.78335863, -0.31953573, -0.9560151)
+
+[node name="Marker3D" type="Marker3D" parent="Camera3D" unique_id=2116598616]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7798662, -0.30006552, -1.3438395)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2128606954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_kqu6x")
+
+[node name="Reticle" type="TextureRect" parent="." unique_id=1537227450]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g1dw6")
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1870865350]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
