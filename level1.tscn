@@ -54,6 +54,7 @@ controls = ExtResource("5_7jktm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1539242392]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 3)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1954403966]
 environment = SubResource("Environment_80nbo")
