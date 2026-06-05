@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="controls" format=3 uid="uid://bfu4n55y5j8fl"]
+
+[ext_resource type="Script" uid="uid://cmsgqw80247a7" path="res://player/controls.gd" id="1_cy0db"]
+
+[resource]
+script = ExtResource("1_cy0db")
+move_left = "p2_move_left"
+move_right = "p2_move_right"
+move_forward = "p2_move_forward"
+move_backward = "p2_move_backward"
+camera_left = "p2_camera_left"
+camera_right = "p2_camera_right"
+camera_up = "p2_camera_up"
+camera_down = "p2_camera_down"
+jump = "p2_jump"
+shoot = "p2_shoot"

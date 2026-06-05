@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var controls: Resource = null
+
 var spawn_position: Vector3
 
 func _ready():
@@ -24,7 +26,7 @@ func _physics_process(delta):
 	const SPEED = 5.5
 	
 	var input_direction_2D = Input.get_vector(
-		"move_left", "move_right", "move_forward", "move_backward"
+		controls.move_left, controls.move_right, controls.move_forward, controls.move_backward
 	)
 	var input_direction_3D = Vector3(
 		input_direction_2D.x, 0.0, input_direction_2D.y
@@ -35,14 +37,14 @@ func _physics_process(delta):
 	velocity.z = direction.z * SPEED
 	
 	velocity.y -= 20.0 * delta
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed(controls.jump) and is_on_floor():
 		velocity.y = 5
-	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
+	elif Input.is_action_just_released(controls.jump) and velocity.y > 0.0:
 		velocity.y = 0.0
 
 	# Right stick camera control
-	var look_x = Input.get_axis("camera_left", "camera_right")
-	var look_y = Input.get_axis("camera_up", "camera_down")
+	var look_x = Input.get_axis(controls.camera_left, controls.camera_right)
+	var look_y = Input.get_axis(controls.camera_up, controls.camera_down)
 	var stick_sensitivity = 3.5
 	rotation_degrees.y -= look_x * stick_sensitivity
 	%Camera3D.rotation_degrees.x -= look_y * stick_sensitivity
@@ -52,7 +54,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	if Input.is_action_pressed("shoot") and %Timer.is_stopped():
+	if Input.is_action_pressed(controls.shoot) and %Timer.is_stopped():
 		shoot_bullet()
 
 	if global_position.y < -35.0:
