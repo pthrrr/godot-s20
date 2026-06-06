@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4sh2dshqr7k1" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Material" uid="uid://ott4g1nwruvd" path="res://level/platform.tres" id="1_feb5d"]
+[ext_resource type="Script" uid="uid://c43qsv5oisr35" path="res://level_1.gd" id="1_i2041"]
 [ext_resource type="Material" uid="uid://cvpvpiga1nhj" path="res://level/bridge.tres" id="2_fc0e3"]
 [ext_resource type="Resource" uid="uid://ds24g87pr6rqr" path="res://player/player_1_controls.tres" id="4_fc0e3"]
 [ext_resource type="Resource" uid="uid://bfu4n55y5j8fl" path="res://player/player_2_controls.tres" id="5_7jktm"]
@@ -20,6 +21,10 @@ fog_height = -4.0
 fog_height_density = 0.35
 
 [node name="Level1" type="Node3D" unique_id=1007569404]
+script = ExtResource("1_i2041")
+
+[node name="MobSpawner3D" parent="." unique_id=2147029638 instance=ExtResource("6_crycw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, -14)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1550151885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5, 0)
@@ -60,5 +65,4 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1954403966]
 environment = SubResource("Environment_80nbo")
 
-[node name="MobSpawner3D" parent="." unique_id=2147029638 instance=ExtResource("6_crycw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]

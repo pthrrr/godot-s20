@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+signal died(player)
+
 var health = 3
 var speed = randf_range(2.0, 4.0)
 
@@ -27,7 +29,7 @@ func _physics_process(delta):
 		bat_model.global_rotation.y = Vector3.FORWARD.signed_angle_to(direction_player2, Vector3.UP) + PI
 
 
-func take_damage():
+func take_damage(player_index):
 	if health == 0:
 		return
 	bat_model.hurt()
@@ -47,9 +49,9 @@ func take_damage():
 		else:
 			var direction_player2 = -1.0 * global_position.direction_to(player2.global_position)
 			apply_central_impulse(direction_player2.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 10.0 + random_upward_force)
-		
+
 		timer.start()
-		
+		died.emit(player_index)
 
 
 func _on_timer_timeout():

@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://by1nxfid65g7a" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://daxau863en5sh" path="res://player/reticle.png" id="3_feb5d"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_feb5d"]
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Game" type="Node2D" unique_id=2024461720]
 script = ExtResource("1_e2o6t")
 
@@ -40,6 +45,15 @@ grow_vertical = 2
 texture = ExtResource("3_feb5d")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=130372609]
+unique_name_in_owner = true
+offset_left = 21.0
+offset_top = 17.0
+offset_right = 210.0
+offset_bottom = 86.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_feb5d")
+
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=568509511]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
@@ -69,3 +83,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_feb5d")
 expand_mode = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=600557289]
+unique_name_in_owner = true
+offset_left = 21.0
+offset_top = 17.0
+offset_right = 210.0
+offset_bottom = 86.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_feb5d")
