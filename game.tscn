@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://by1nxfid65g7a" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://daxau863en5sh" path="res://player/reticle.png" id="3_feb5d"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_feb5d"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_feb5d"]
 font_size = 50
 outline_size = 5
@@ -11,6 +13,12 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D" unique_id=2024461720]
 script = ExtResource("1_e2o6t")
+
+[node name="KillPlane" type="Area3D" parent="." unique_id=768187000]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane" unique_id=492523077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_feb5d")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=306001017]
 offset_right = 1924.0
@@ -94,3 +102,5 @@ offset_right = 210.0
 offset_bottom = 86.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_feb5d")
+
+[connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
