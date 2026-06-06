@@ -1,8 +1,10 @@
 extends RigidBody3D
 
+var health = 3
 var speed = randf_range(2.0, 4.0)
 
 @onready var bat_model = %bat_model
+@onready var timer = %Timer
 
 @onready var player = get_node("/root/Game/HBoxContainer/SubViewportContainer/SubViewport/Level1/Player")
 
@@ -26,4 +28,29 @@ func _physics_process(delta):
 
 
 func take_damage():
+	if health == 0:
+		return
 	bat_model.hurt()
+	health -= 1
+	
+	if health == 0:
+		set_physics_process(false)
+		gravity_scale = 1.0
+		
+		var dist_p1 = global_position.distance_to(player.global_position)
+		var dist_p2 = global_position.distance_to(player2.global_position)
+		var random_upward_force = Vector3.UP * randf_range(1.0, 5.0)
+		
+		if dist_p1 < dist_p2:
+			var direction_player = -1.0 * global_position.direction_to(player.global_position)
+			apply_central_impulse(direction_player.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 10.0 + random_upward_force)
+		else:
+			var direction_player2 = -1.0 * global_position.direction_to(player2.global_position)
+			apply_central_impulse(direction_player2.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 10.0 + random_upward_force)
+		
+		timer.start()
+		
+
+
+func _on_timer_timeout():
+	queue_free()
