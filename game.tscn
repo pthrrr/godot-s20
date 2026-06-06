@@ -22,6 +22,7 @@ layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=1687835750]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
@@ -63,6 +64,7 @@ layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=1672764589]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(960, 1080)
 render_target_update_mode = 4
 

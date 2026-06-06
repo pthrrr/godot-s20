@@ -8,6 +8,9 @@ var speed = randf_range(2.0, 4.0)
 @onready var bat_model = %bat_model
 @onready var timer = %Timer
 
+@onready var hurt_sound = %HurtSound
+@onready var die_sound = %DieSound
+
 @onready var player = get_node("/root/Game/HBoxContainer/SubViewportContainer/SubViewport/Level1/Player")
 
 @onready var player2 = get_node("/root/Game/HBoxContainer/SubViewportContainer/SubViewport/Level1/Player2")
@@ -34,6 +37,7 @@ func take_damage(player_index):
 		return
 	bat_model.hurt()
 	health -= 1
+	hurt_sound.play()
 	
 	if health == 0:
 		set_physics_process(false)
@@ -52,6 +56,7 @@ func take_damage(player_index):
 
 		timer.start()
 		died.emit(player_index)
+		die_sound.play()
 
 
 func _on_timer_timeout():
