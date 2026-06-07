@@ -4,6 +4,7 @@ signal died(player)
 
 var health = 3
 var speed = randf_range(2.0, 4.0)
+var killer_player_index = 0
 
 @onready var bat_model = %bat_model
 @onready var timer = %Timer
@@ -40,6 +41,7 @@ func take_damage(player_index):
 	hurt_sound.play()
 	
 	if health == 0:
+		killer_player_index = player_index
 		set_physics_process(false)
 		gravity_scale = 1.0
 		
@@ -55,9 +57,9 @@ func take_damage(player_index):
 			apply_central_impulse(direction_player2.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 10.0 + random_upward_force)
 
 		timer.start()
-		died.emit(player_index)
 		die_sound.play()
 
 
 func _on_timer_timeout():
+	died.emit(killer_player_index)
 	queue_free()
