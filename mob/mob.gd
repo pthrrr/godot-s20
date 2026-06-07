@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 signal died(player)
+signal kill
 
 var health = 3
 var speed = randf_range(2.0, 4.0)
@@ -58,6 +59,7 @@ func take_damage(player_index):
 
 		timer.start()
 		die_sound.play()
+		kill.emit(killer_player_index)
 
 
 func _on_timer_timeout():

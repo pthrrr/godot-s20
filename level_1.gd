@@ -17,8 +17,9 @@ func increase_score(player_index):
 
 
 func _on_mob_spawner_3d_mob_spawned(mob):
+	mob.kill.connect(increase_score)
 	mob.died.connect(func(player_index):
-		increase_score(player_index)
+		#increase_score(player_index)
 		do_poof(mob.global_position)
 	)
 	do_poof(mob.global_position)
