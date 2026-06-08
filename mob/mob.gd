@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 signal died(player)
-signal kill
+signal kill(killer_player_index)
 
 var health = 3
 var speed = randf_range(2.0, 4.0)

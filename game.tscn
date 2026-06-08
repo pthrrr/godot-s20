@@ -74,6 +74,15 @@ offset_bottom = 86.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_feb5d")
 
+[node name="Label_mob" type="Label" parent="." unique_id=2023741829]
+unique_name_in_owner = true
+offset_left = 1709.0
+offset_top = 21.0
+offset_right = 1898.0
+offset_bottom = 90.0
+text = "Mob: 0"
+label_settings = SubResource("LabelSettings_feb5d")
+
 [node name="KillPlane" type="Area3D" parent="." unique_id=768187000]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane" unique_id=492523077]
