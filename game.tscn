@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://by1nxfid65g7a" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://daxau863en5sh" path="res://player/reticle.png" id="3_feb5d"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_feb5d"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_feb5d"]
+[sub_resource type="LabelSettings" id="LabelSettings_fc0e3"]
 font_size = 50
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -14,13 +12,67 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_7jktm"]
 font_size = 100
 
-[sub_resource type="LabelSettings" id="LabelSettings_fc0e3"]
+[sub_resource type="LabelSettings" id="LabelSettings_feb5d"]
 font_size = 50
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_feb5d"]
+
 [node name="Game" type="Node2D" unique_id=2024461720]
 script = ExtResource("1_e2o6t")
+
+[node name="Level1" parent="." unique_id=1007569404 instance=ExtResource("1_80nbo")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=59716745]
+current = true
+
+[node name="Green" type="ColorRect" parent="." unique_id=1895628859]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.654902, 0.3019608, 0.627451)
+
+[node name="TimerLabel" type="Label" parent="." unique_id=859458631]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 896.0
+offset_right = 1024.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "00:30"
+label_settings = SubResource("LabelSettings_fc0e3")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=13340807]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Reticle" type="TextureRect" parent="CenterContainer" unique_id=1242263838]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("3_feb5d")
+expand_mode = 1
+
+[node name="Label_win" type="Label" parent="CenterContainer" unique_id=436631230]
+visible = false
+layout_mode = 2
+text = "WIN"
+label_settings = SubResource("LabelSettings_7jktm")
+
+[node name="Label" type="Label" parent="." unique_id=130372609]
+unique_name_in_owner = true
+offset_left = 21.0
+offset_top = 17.0
+offset_right = 210.0
+offset_bottom = 86.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_feb5d")
 
 [node name="KillPlane" type="Area3D" parent="." unique_id=768187000]
 
@@ -28,139 +80,10 @@ script = ExtResource("1_e2o6t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = SubResource("WorldBoundaryShape3D_feb5d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=306001017]
-offset_right = 1924.0
-offset_bottom = 1080.0
-theme_override_constants/separation = 0
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=811980868]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=1687835750]
-handle_input_locally = false
-audio_listener_enable_3d = true
-size = Vector2i(960, 1080)
-render_target_update_mode = 4
-
-[node name="Level1" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1007569404 instance=ExtResource("1_80nbo")]
-
-[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=59716745]
-current = true
-
-[node name="Reticle" type="TextureRect" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1242263838]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_feb5d")
-expand_mode = 1
-
-[node name="Green" type="ColorRect" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1895628859]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.654902, 0.3019608, 0.627451)
-
-[node name="Label" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=130372609]
-unique_name_in_owner = true
-offset_left = 21.0
-offset_top = 17.0
-offset_right = 210.0
-offset_bottom = 86.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_feb5d")
-
-[node name="Label_win" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=436631230]
-visible = false
-offset_left = 350.99994
-offset_top = 566.0
-offset_right = 553.99994
-offset_bottom = 703.0
-rotation = -0.7853982
-text = "WIN"
-label_settings = SubResource("LabelSettings_7jktm")
-
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=568509511]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=687148792]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=1672764589]
-handle_input_locally = false
-audio_listener_enable_3d = true
-size = Vector2i(960, 1080)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=117670737]
-current = true
-
-[node name="Reticle" type="TextureRect" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1918866287]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_feb5d")
-expand_mode = 1
-
-[node name="Green2" type="ColorRect" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1762658204]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.654902, 0.3019608, 0.627451)
-
-[node name="Label2" type="Label" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=600557289]
-unique_name_in_owner = true
-offset_left = 21.0
-offset_top = 17.0
-offset_right = 210.0
-offset_bottom = 86.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_feb5d")
-
-[node name="Label_win2" type="Label" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=585997976]
-visible = false
-offset_left = 450.99994
-offset_top = 413.00006
-offset_right = 653.99994
-offset_bottom = 550.00006
-rotation = 0.7853982
-text = "WIN"
-label_settings = SubResource("LabelSettings_7jktm")
-
 [node name="RoundTimer" type="Timer" parent="." unique_id=919482953]
 wait_time = 30.0
 one_shot = true
 autostart = true
-
-[node name="TimerLabel" type="Label" parent="." unique_id=859458631]
-offset_left = 804.0
-offset_top = 17.0
-offset_right = 944.0
-offset_bottom = 86.0
-text = "00:30"
-label_settings = SubResource("LabelSettings_fc0e3")
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

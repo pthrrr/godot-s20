@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://c43qsv5oisr35" path="res://level_1.gd" id="1_i2041"]
 [ext_resource type="Material" uid="uid://cvpvpiga1nhj" path="res://level/bridge.tres" id="2_fc0e3"]
 [ext_resource type="Resource" uid="uid://ds24g87pr6rqr" path="res://player/player_1_controls.tres" id="4_fc0e3"]
-[ext_resource type="Resource" uid="uid://bfu4n55y5j8fl" path="res://player/player_2_controls.tres" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://cnebjo00yac68" path="res://mob/spawner/mob_spawner_3d.tscn" id="6_crycw"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
@@ -25,6 +24,9 @@ script = ExtResource("1_i2041")
 
 [node name="MobSpawner3D" parent="." unique_id=2147029638 instance=ExtResource("6_crycw")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, -14)
+
+[node name="MobSpawner3D2" parent="." unique_id=1676755294 instance=ExtResource("6_crycw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0, -14)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1550151885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -5, 0)
@@ -51,12 +53,8 @@ size = Vector3(2, 1, 3)
 material = ExtResource("2_fc0e3")
 
 [node name="Player" parent="." unique_id=425597721 instance=ExtResource("1_80nbo")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(0.86602545, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, 0.86602545, 0, 0, 0)
 controls = ExtResource("4_fc0e3")
-
-[node name="Player2" parent="." unique_id=930616336 instance=ExtResource("1_80nbo")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 18, 0, 0)
-controls = ExtResource("5_7jktm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1539242392]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 3)
@@ -66,3 +64,4 @@ shadow_enabled = true
 environment = SubResource("Environment_80nbo")
 
 [connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="MobSpawner3D2" to="." method="_on_mob_spawner_3d_mob_spawned"]
