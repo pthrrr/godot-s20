@@ -1,6 +1,8 @@
-# godot-s20
+# arena-fps-godot
 
 3D arena shooter — single player mode. Based on [gdquest first_3d_game_godot4_arena_fps](https://www.gdquest.com/library/first_3d_game_godot4_arena_fps/).
+
+[Play in browser](https://pthrrr.github.io/arena-fps-godot/)
 
 ![Single Player](screenshots/singleplayer.png)
 
