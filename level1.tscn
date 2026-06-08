@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cnebjo00yac68" path="res://mob/spawner/mob_spawner_3d.tscn" id="6_crycw"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
-background_mode = 1
+background_mode = 2
 background_color = Color(1.540184e-06, 0.73958945, 0.8453087, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.66485614, 0.85394293, 0.83322614, 1)

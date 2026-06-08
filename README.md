@@ -2,6 +2,8 @@
 
 3D arena shooter — single player mode. Based on [gdquest first_3d_game_godot4_arena_fps](https://www.gdquest.com/library/first_3d_game_godot4_arena_fps/).
 
+![Single Player](screenshots/singleplayer.png)
+
 ## Features
 
 - Keyboard + mouse controls
