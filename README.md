@@ -2,7 +2,7 @@
 
 3D arena shooter — single player mode. Based on [gdquest first_3d_game_godot4_arena_fps](https://www.gdquest.com/library/first_3d_game_godot4_arena_fps/).
 
-[Play in browser](https://pthrrr.github.io/arena-fps-godot/)
+<a href="https://pthrrr.github.io/arena-fps-godot/" target="_blank">Play in browser</a>
 
 ![Single Player](screenshots/singleplayer.png)
 
@@ -26,3 +26,7 @@
 ## Requirements
 
 - Godot 4.6
+
+## Credits
+
+Game assets (3D models, textures, sounds) by [GDQuest](https://www.gdquest.com/), licensed under [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/). Code based on their tutorial, licensed under [MIT](https://opensource.org/licenses/MIT).
