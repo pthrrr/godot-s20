@@ -17,6 +17,8 @@ var killer_player_index = 0
 
 @onready var player2 = get_node("/root/Game/HBoxContainer/SubViewportContainer/SubViewport/Level1/Player2")
 
+@onready var raycast = $RayCast3D
+
 
 func _physics_process(delta):
 	var direction_player = global_position.direction_to(player.global_position)
@@ -27,11 +29,18 @@ func _physics_process(delta):
 	var dist_p1 = global_position.distance_to(player.global_position)
 	var dist_p2 = global_position.distance_to(player2.global_position)
 	if dist_p1 < dist_p2:
+		raycast.target_position = direction_player * 8.0
 		linear_velocity = direction_player * speed
 		bat_model.global_rotation.y = Vector3.FORWARD.signed_angle_to(direction_player, Vector3.UP) + PI
 	else:
+		raycast.target_position = direction_player2 * 8.0
 		linear_velocity = direction_player2 * speed
 		bat_model.global_rotation.y = Vector3.FORWARD.signed_angle_to(direction_player2, Vector3.UP) + PI
+
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is CharacterBody3D:
+			pass
 
 
 func take_damage(player_index):
