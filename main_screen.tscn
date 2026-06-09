@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c6al1vm53hvib"]
+
+[ext_resource type="Script" uid="uid://bio0m5ys7ka5x" path="res://main_screen.gd" id="1_tjn2e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hkt3"]
+font_size = 80
+
+[sub_resource type="Theme" id="Theme_0hkt3"]
+default_font_size = 40
+
+[node name="MainScreen" type="Control" unique_id=988874173]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tjn2e")
+
+[node name="background" type="ColorRect" parent="." unique_id=1203472048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.654902, 0.3019608, 0.627451)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=187081699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=535661890]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1743205652]
+layout_mode = 2
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_0hkt3")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=858934061]
+custom_minimum_size = Vector2(543, 115)
+layout_mode = 2
+theme = SubResource("Theme_0hkt3")
+text = "Restart"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -9,8 +9,6 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and controls.player_index == 0:
 		rotation_degrees.y -= event.relative.x * 0.2
-		#get_node("Camera3D")
-		#$Camera3D
 		%Camera3D.rotation_degrees.x -= event.relative.y * 0.2
 		%Camera3D.rotation_degrees.x = clamp(
 			%Camera3D.rotation_degrees.x, -80.0, 80.0

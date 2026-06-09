@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://k3ugy2otu50y" path="res://mob/mob.gd" id="1_6jlfs"]
 [ext_resource type="PackedScene" uid="uid://dxwr5vaj8imqh" path="res://mob/bat/bat_model.tscn" id="1_7b8ug"]
-[ext_resource type="AudioStream" uid="uid://b3nnbeeoiotqf" path="res://mob/mob_take_damage.wav" id="3_mixeo"]
-[ext_resource type="AudioStream" uid="uid://po6k0sutho05" path="res://mob/mob_ko.wav" id="4_jkfaf"]
+[ext_resource type="AudioStream" uid="uid://dfpu1s8dg2uc7" path="res://mob/mob_take_damage.wav" id="3_mixeo"]
+[ext_resource type="AudioStream" uid="uid://bp4m5jgbdy8pg" path="res://mob/mob_ko.wav" id="4_jkfaf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6jlfs"]
 radius = 0.3
