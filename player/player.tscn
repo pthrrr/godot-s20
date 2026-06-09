@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://4sh2dshqr7k1"]
 
-[ext_resource type="PackedScene" uid="uid://u2xnrkkb0i6f" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://cds6ja2v4g7nk" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bo7n13viq4gn0" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="AudioStream" uid="uid://c6hwwneak0dyq" path="res://player/gun_shoot.wav" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://by2121msgvwpb" path="res://player/gun_shoot.wav" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
