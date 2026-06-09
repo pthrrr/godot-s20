@@ -51,6 +51,13 @@ func _physics_process(delta):
 		%Camera3D.rotation_degrees.x, -80.0, 80.0
 	)
 
+	if is_on_floor():
+		var floor_normal = get_floor_normal()
+		var slope_angle = floor_normal.angle_to(Vector3.UP)
+		if slope_angle > deg_to_rad(10):
+			var slide_dir = Vector3(floor_normal.x, 0, floor_normal.z).normalized()
+			velocity += slide_dir * slope_angle * 5.0
+
 	move_and_slide()
 	
 	if Input.is_action_pressed(controls.shoot) and %Timer.is_stopped():
