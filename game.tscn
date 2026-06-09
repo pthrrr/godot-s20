@@ -160,7 +160,7 @@ text = "WIN"
 label_settings = SubResource("LabelSettings_7jktm")
 
 [node name="RoundTimer" type="Timer" parent="." unique_id=919482953]
-wait_time = 30.0
+wait_time = 45.0
 one_shot = true
 autostart = true
 
