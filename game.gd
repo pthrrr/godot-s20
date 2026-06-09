@@ -9,6 +9,8 @@ var countdown_str = ""
 @onready var round_timer = $RoundTimer
 @onready var main_screen: Control = $MainScreen
 
+static var first_launch = true
+
 
 @onready var players := {
 	"1": {
@@ -19,6 +21,13 @@ var countdown_str = ""
 }
 
 func _ready():
+	if first_launch:
+		get_tree().paused = true
+		first_launch = false
+	else:
+		main_screen.visible = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
 	spawn_position_player = players["1"].player.global_position
 	for node in players.values():
 		var remote_transform := RemoteTransform3D.new()
@@ -46,7 +55,7 @@ func _on_kill_plane_body_entered(body):
 
 func _on_round_timer_timeout():
 	get_tree().paused = true
-	#green.visible = true
-	#label_win.visible = true
 	main_screen.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$MainScreen/CenterContainer/VBoxContainer/ResumeButton.visible = false
+	$MainScreen/CenterContainer/VBoxContainer/StartButton.text = "Restart"

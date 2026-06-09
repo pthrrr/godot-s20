@@ -76,7 +76,6 @@ one_shot = true
 autostart = true
 
 [node name="MainScreen" parent="." unique_id=988874173 instance=ExtResource("4_fc0e3")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

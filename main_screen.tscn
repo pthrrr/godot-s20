@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bio0m5ys7ka5x" path="res://main_screen.gd" id="1_tjn2e"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_0hkt3"]
-font_size = 80
-
 [sub_resource type="Theme" id="Theme_0hkt3"]
 default_font_size = 40
 
@@ -40,25 +37,18 @@ layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1743205652]
-layout_mode = 2
-text = "Game Paused"
-label_settings = SubResource("LabelSettings_0hkt3")
-horizontal_alignment = 1
-
-[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=858934061]
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=252981381]
+visible = false
 custom_minimum_size = Vector2(543, 115)
 layout_mode = 2
 theme = SubResource("Theme_0hkt3")
-text = "Restart"
+text = "Resume"
 
-[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1489745751]
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=447054353]
 custom_minimum_size = Vector2(543, 115)
 layout_mode = 2
 theme = SubResource("Theme_0hkt3")
-text = "Exit"
+text = "Start"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
