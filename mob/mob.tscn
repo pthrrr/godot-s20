@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://k3ugy2otu50y" path="res://mob/mob.gd" id="1_6jlfs"]
 [ext_resource type="PackedScene" uid="uid://dxwr5vaj8imqh" path="res://mob/bat/bat_model.tscn" id="1_7b8ug"]
-[ext_resource type="AudioStream" uid="uid://dfpu1s8dg2uc7" path="res://mob/mob_take_damage.wav" id="3_mixeo"]
-[ext_resource type="AudioStream" uid="uid://bp4m5jgbdy8pg" path="res://mob/mob_ko.wav" id="4_jkfaf"]
+[ext_resource type="AudioStream" uid="uid://dnbdkv4804oor" path="res://sounds/mob_hit.mp3" id="3_mixeo"]
+[ext_resource type="AudioStream" uid="uid://c8rktnjptkiq6" path="res://sounds/mob_died.mp3" id="4_mixeo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6jlfs"]
 radius = 0.3
@@ -30,7 +30,7 @@ stream = ExtResource("3_mixeo")
 
 [node name="DieSound" type="AudioStreamPlayer3D" parent="." unique_id=421941255]
 unique_name_in_owner = true
-stream = ExtResource("4_jkfaf")
+stream = ExtResource("4_mixeo")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=397486338]
 debug_shape_custom_color = Color(0.99999994, 0.04050286, 0.022352692, 1)
