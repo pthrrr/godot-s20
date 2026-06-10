@@ -22,6 +22,8 @@ func _physics_process(delta):
 	global_position.x = center.x + cos(angle) * radius
 	global_position.z = center.z + sin(angle) * radius
 	
+	look_at(Vector3(0, global_position.y, 0))
+	rotation.y -= PI / 2.0
 
 func _on_timer_timeout():
 	var new_mob = mob_to_spawn.instantiate()
