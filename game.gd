@@ -8,6 +8,7 @@ var countdown_str = ""
 @onready var round_timer_label: Label = $RoundTimerLabel
 @onready var round_timer = $RoundTimer
 @onready var main_menu: Control = $MainMenu
+@onready var gameover_screen: Control = $GameOverScreen
 
 static var first_launch = true
 
@@ -50,11 +51,16 @@ func _physics_process(delta):
 func _on_kill_plane_body_entered(body):
 	if not body is CharacterBody3D:
 		return
-	if body.controls.player_index == 0:
-		body.global_position = spawn_position_player
-		players["1"].score_counter_label.text = "Score: " + str(0)
-		level.player_score = 0
-	body.velocity = Vector3.ZERO
+	#if body.controls.player_index == 0:
+		#body.global_position = spawn_position_player
+		#players["1"].score_counter_label.text = "Score: " + str(0)
+		#level.player_score = 0
+	#body.velocity = Vector3.ZERO
+	get_tree().paused = true
+	gameover_screen.visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	%MainMusic.stop()
+	%MenuMusic.play()
 
 
 func _on_round_timer_timeout():

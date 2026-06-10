@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://crq2s46411tjp"]
+
+[ext_resource type="Script" uid="uid://bfgvm8b5lwcqf" path="res://gameover_screen.gd" id="1_7byvd"]
+[ext_resource type="AudioStream" uid="uid://c8sy0yy7ituge" path="res://sounds/menu_focus.mp3" id="2_juxjb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1flm"]
+font_size = 60
+
+[sub_resource type="Theme" id="Theme_a1flm"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_juxjb"]
+default_font_size = 40
+
+[node name="GameOverScreen" type="Control" unique_id=1518999101]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7byvd")
+
+[node name="Background" type="ColorRect" parent="." unique_id=746434717]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9873851, 0.12115192, 0.32335982, 0.627451)
+
+[node name="Label_gameover" type="Label" parent="." unique_id=993690977]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 133.0
+offset_right = 1231.0
+offset_bottom = 216.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_a1flm")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=952113845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=987916184]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=996147691]
+process_mode = 3
+custom_minimum_size = Vector2(543, 115)
+layout_mode = 2
+theme = SubResource("Theme_a1flm")
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1474070804]
+process_mode = 3
+custom_minimum_size = Vector2(543, 115)
+layout_mode = 2
+theme = SubResource("Theme_juxjb")
+text = "Exit"
+
+[node name="FocusSound" type="AudioStreamPlayer2D" parent="." unique_id=1989514405]
+process_mode = 3
+position = Vector2(688, 560)
+stream = ExtResource("2_juxjb")
+
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

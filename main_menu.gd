@@ -25,9 +25,5 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_button_focus_entered() -> void:
-	$ConfirmSound.play()
-
-
 func _on_button_mouse_entered() -> void:
 	$FocusSound.play()
