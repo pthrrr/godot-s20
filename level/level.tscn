@@ -4,16 +4,34 @@
 [ext_resource type="Material" uid="uid://ott4g1nwruvd" path="res://level/platform.tres" id="1_feb5d"]
 [ext_resource type="Script" uid="uid://c43qsv5oisr35" path="res://level/level.gd" id="1_i2041"]
 [ext_resource type="Resource" uid="uid://ds24g87pr6rqr" path="res://player/player_1_controls.tres" id="4_fc0e3"]
+[ext_resource type="Shader" uid="uid://b482oxemnbw1s" path="res://level/sky.gdshader" id="6_44x8d"]
 [ext_resource type="PackedScene" uid="uid://cnebjo00yac68" path="res://mob/spawner/mob_spawner.tscn" id="6_crycw"]
 
+[sub_resource type="Curve" id="Curve_44x8d"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ivpvi"]
+curve = SubResource("Curve_44x8d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6gtgk"]
+shader = ExtResource("6_44x8d")
+shader_parameter/top_color = Color(9.62615e-08, 0.14039022, 0.39602727, 1)
+shader_parameter/bottom_color = Color(0.61960787, 0.7254902, 1, 1)
+shader_parameter/gradient_curve = SubResource("CurveTexture_ivpvi")
+
+[sub_resource type="Sky" id="Sky_ktfr2"]
+sky_material = SubResource("ShaderMaterial_6gtgk")
+
 [sub_resource type="Environment" id="Environment_80nbo"]
-background_mode = 1
+background_mode = 2
 background_color = Color(1.540184e-06, 0.73958945, 0.8453087, 1)
+sky = SubResource("Sky_ktfr2")
 ambient_light_source = 2
 ambient_light_color = Color(0.66485614, 0.85394293, 0.83322614, 1)
 fog_enabled = true
-fog_light_color = Color(0.2843975, 0.47438085, 1, 1)
-fog_density = 0.0055
+fog_light_color = Color(0.61960787, 0.7254902, 1, 1)
+fog_sky_affect = 0.1
 fog_height = -4.0
 fog_height_density = 0.35
 
@@ -35,7 +53,7 @@ material = ExtResource("1_feb5d")
 [node name="Player" parent="." unique_id=425597721 instance=ExtResource("1_80nbo")]
 controls = ExtResource("4_fc0e3")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1954403966]
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=372717239]
 environment = SubResource("Environment_80nbo")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1027953268]

@@ -72,6 +72,7 @@ Key locations in the existing codebase to be aware of:
 ## Creature Behavior
 
 - [ ] Implement player targeting (creatures move toward the player)
+- [ ] Make bats follow the player in both horizontal (XZ) and vertical (Y) directions, not just XZ
 - [ ] Add knockback on creature-player contact (push player away from creature)
 - [ ] Tune knockback force so creatures can push the player off edges over time
 - [ ] Prevent creatures from spawning inside the glass walls (spawn outside barrier)
