@@ -80,3 +80,7 @@ autoplay = &"rotation"
 [node name="DroneSound" type="AudioStreamPlayer3D" parent="." index="4" unique_id=489393569]
 stream = ExtResource("4_lvlhh")
 autoplay = true
+emission_angle_enabled = true
+emission_angle_degrees = 90.0
+emission_angle_filter_attenuation_db = -6.0
+attenuation_filter_db = -10.0

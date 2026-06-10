@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c6al1vm53hvib"]
 
 [ext_resource type="Script" uid="uid://bio0m5ys7ka5x" path="res://main_screen.gd" id="1_tjn2e"]
+[ext_resource type="AudioStream" uid="uid://c8sy0yy7ituge" path="res://sounds/menu_focus.mp3" id="2_w0p2i"]
+[ext_resource type="AudioStream" uid="uid://sy65y3n13eci" path="res://sounds/menu_confirm.mp3" id="3_7a4el"]
 
 [sub_resource type="Theme" id="Theme_0hkt3"]
 default_font_size = 40
@@ -56,6 +58,21 @@ layout_mode = 2
 theme = SubResource("Theme_0hkt3")
 text = "Exit"
 
+[node name="FocusSound" type="AudioStreamPlayer2D" parent="." unique_id=457449646]
+position = Vector2(688, 560)
+stream = ExtResource("2_w0p2i")
+
+[node name="ConfirmSound" type="AudioStreamPlayer2D" parent="." unique_id=636430087]
+position = Vector2(688, 560)
+stream = ExtResource("3_7a4el")
+volume_db = 10.0
+
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
