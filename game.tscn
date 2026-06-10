@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6al1vm53hvib" path="res://main_screen.tscn" id="4_fc0e3"]
 [ext_resource type="AudioStream" uid="uid://bxm2v2hj3ou6u" path="res://sounds/main_music.mp3" id="5_ryrav"]
 [ext_resource type="AudioStream" uid="uid://ciqbchbmjyrw0" path="res://sounds/menu_music.mp3" id="6_eow3j"]
+[ext_resource type="PackedScene" uid="uid://crq2s46411tjp" path="res://gameover_screen.tscn" id="7_eow3j"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_feb5d"]
 
@@ -183,6 +184,10 @@ offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 4
+
+[node name="GameOverScreen" parent="." unique_id=1518999101 instance=ExtResource("7_eow3j")]
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="." unique_id=411202859]
 unique_name_in_owner = true

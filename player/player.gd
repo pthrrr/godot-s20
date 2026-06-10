@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 @export var controls: Resource = null
 
+var knockback_velocity = Vector3.ZERO
+
 func _ready():
 	pass
 
@@ -14,6 +16,7 @@ func _unhandled_input(event):
 			%Camera3D.rotation_degrees.x, -80.0, 80.0
 		)
 	elif event.is_action_pressed("ui_cancel"):
+		$MenuSound.play()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 		var main_screen = get_tree().current_scene.get_node("MainScreen")
@@ -34,8 +37,8 @@ func _physics_process(delta):
 	)
 	var direction = transform.basis * input_direction_3D
 	
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
+	velocity.x = direction.x * SPEED + knockback_velocity.x
+	velocity.z = direction.z * SPEED + knockback_velocity.z
 	
 	velocity.y -= 20.0 * delta
 	if Input.is_action_just_pressed(controls.jump) and is_on_floor():

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://u2xnrkkb0i6f" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bo7n13viq4gn0" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="AudioStream" uid="uid://c8nkjj1a121qt" path="res://sounds/gunshot.mp3" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://sy65y3n13eci" path="res://sounds/menu_sound.mp3" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -39,3 +40,9 @@ one_shot = true
 [node name="GunShot" type="AudioStreamPlayer" parent="." unique_id=1220508724]
 unique_name_in_owner = true
 stream = ExtResource("3_g1dw6")
+
+[node name="MenuSound" type="AudioStreamPlayer2D" parent="." unique_id=1236021945]
+process_mode = 3
+position = Vector2(688, 560)
+stream = ExtResource("4_yw30f")
+volume_db = 10.0
