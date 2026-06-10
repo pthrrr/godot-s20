@@ -16,9 +16,9 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
-		$"../../MainScreen".visible = true
-		$"../../MainScreen/CenterContainer/VBoxContainer/ResumeButton".visible = true
-		$"../../MainScreen/CenterContainer/VBoxContainer/StartButton".text = "Restart"
+		$"../../MainMenu".visible = true
+		$"../../MainMenu/CenterContainer/VBoxContainer/ResumeButton".visible = true
+		$"../../MainMenu/CenterContainer/VBoxContainer/StartButton".text = "Restart"
 		
 func _physics_process(delta):
 	const SPEED = 5.5
@@ -59,7 +59,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	if Input.is_action_pressed(controls.shoot) and %Timer.is_stopped():
+	if Input.is_action_pressed(controls.shoot) and %ShootTimer.is_stopped():
 		shoot_bullet()
 
 	
@@ -71,5 +71,5 @@ func shoot_bullet():
 	
 	new_bullet.global_transform = %Marker3D.global_transform
 	
-	%Timer.start()
+	%ShootTimer.start()
 	%AudioStreamPlayer.play()

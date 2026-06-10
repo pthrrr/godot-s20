@@ -13,7 +13,7 @@ var killer_player_index = 0
 @onready var hurt_sound = %HurtSound
 @onready var die_sound = %DieSound
 
-@onready var player = get_node("/root/Game/Level1/Player")
+@onready var player = get_node("/root/Game/GameLevel/Player")
 @onready var raycast = $RayCast3D
 
 

@@ -15,13 +15,12 @@
 
 Instructions and preferences from the user:
 
-- The user handles all implementation (scene building, gameplay coding) themselves
-- The assistant provides guidance, code suggestions, documentation, and git operations
-- The user prefers to make UI and scene changes in the Godot editor -- give instructions for editor tasks, do not edit .tscn files unless explicitly asked
+- **DO NOT edit code files (.gd, .tscn, .tres) unless the user explicitly asks.** The user handles ALL implementation. No exceptions. When spotting bugs or issues, ONLY report them to the user -- do not fix them.
+- The assistant provides guidance, code suggestions, documentation, and git operations (commit, push, branch)
+- The user prefers to make UI and scene changes in the Godot editor -- give instructions for editor tasks
 - Do not push to repo unless explicitly asked
 - Changes to `game.gd` and `game.tscn` are branch-specific (different logic per branch)
 - When porting changes across branches, `game.gd` and `game.tscn` need manual adaptation (different scene structures per branch)
-- The user gets frustrated when unauthorized changes are made -- only do what is explicitly asked
 - Glass walls, countdowns, scoreboard are lower priority -- basic gameplay first
 - Keep things simple for the basic gameplay, complexity can be added later
 
@@ -90,9 +89,12 @@ Key locations in the existing codebase to be aware of:
 
 ## UI / HUD
 
+- [ ] Create a dedicated HUD scene (crosshair, score counter, round timer, wave number)
+- [ ] Move crosshair from game.tscn into HUD scene
+- [ ] Move score counter label from game.tscn into HUD scene
+- [ ] Move round timer label from game.tscn into HUD scene
 - [ ] Wave announcement display ("Wave 1", "Wave 2", ...) -- large text, fades after a few seconds
 - [ ] 5-second countdown overlay before glass walls shatter
-- [ ] Score display during gameplay (already exists, adapt for wave system)
 - [ ] Wave number display during gameplay
 - [ ] Game over screen with final score and wave reached
 - [ ] Highscore entry: name input field on game over screen
@@ -150,3 +152,9 @@ Key locations in the existing codebase to be aware of:
 - [ ] Synchronize player positions and actions
 - [ ] Handle player disconnect / reconnect
 - [ ] Shared or individual scoring in network play
+
+## Code Quality
+
+- [ ] Re-enable GDScript type checking in project settings (currently disabled)
+- [ ] Add type annotations to all variables, function parameters, and return types across all scripts
+- [ ] Fix any type errors surfaced by re-enabling type checking

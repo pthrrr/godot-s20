@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27986622, -0.30006552, -1.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_kqu6x")
 
-[node name="Timer" type="Timer" parent="." unique_id=1870865350]
+[node name="ShootTimer" type="Timer" parent="." unique_id=1870865350]
 unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true

@@ -5,7 +5,7 @@ var mob_counter = 0
 
 const MAX_MOBS = 20
 
-@onready var label = %Label
+@onready var score_counter_label = %ScoreCounterLabel
 @onready var label_mob: Label = %Label_mob
 @onready var spawner1 = $MobSpawner3D
 @onready var spawner2 = $MobSpawner3D2
@@ -19,7 +19,7 @@ func get_total_mobs() -> int:
 func increase_score(player_index):
 	if player_index == 0:
 		player_score += 1
-		label.text = "Score: " + str(player_score)
+		score_counter_label.text = "Score: " + str(player_score)
 
 
 func _on_mob_spawner_3d_mob_spawned(mob):

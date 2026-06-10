@@ -20,12 +20,12 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Game" type="Node2D" unique_id=2024461720]
 script = ExtResource("1_e2o6t")
 
-[node name="Level1" parent="." unique_id=1007569404 instance=ExtResource("1_80nbo")]
+[node name="GameLevel" parent="." unique_id=1297309737 instance=ExtResource("1_80nbo")]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=59716745]
+[node name="PlayerCam" type="Camera3D" parent="." unique_id=59716745]
 current = true
 
-[node name="TimerLabel" type="Label" parent="." unique_id=859458631]
+[node name="RoundTimerLabel" type="Label" parent="." unique_id=859458631]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -40,13 +40,13 @@ label_settings = SubResource("LabelSettings_fc0e3")
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Reticle" type="TextureRect" parent="CenterContainer" unique_id=1242263838]
+[node name="Crosshair" type="TextureRect" parent="CenterContainer" unique_id=1242263838]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 texture = ExtResource("3_feb5d")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="." unique_id=130372609]
+[node name="ScoreCounterLabel" type="Label" parent="." unique_id=130372609]
 unique_name_in_owner = true
 offset_left = 21.0
 offset_top = 17.0
@@ -75,7 +75,7 @@ wait_time = 45.0
 one_shot = true
 autostart = true
 
-[node name="MainScreen" parent="." unique_id=988874173 instance=ExtResource("4_fc0e3")]
+[node name="MainMenu" parent="." unique_id=988874173 instance=ExtResource("4_fc0e3")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

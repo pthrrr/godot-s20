@@ -5,7 +5,7 @@
 [sub_resource type="Theme" id="Theme_0hkt3"]
 default_font_size = 40
 
-[node name="MainScreen" type="Control" unique_id=988874173]
+[node name="MainMenu" type="Control" unique_id=988874173]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tjn2e")
 
-[node name="background" type="ColorRect" parent="." unique_id=1203472048]
+[node name="Background" type="ColorRect" parent="." unique_id=1203472048]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
