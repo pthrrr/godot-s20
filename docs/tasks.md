@@ -126,6 +126,7 @@ Key locations in the existing codebase to be aware of:
 - [ ] Review platform geometry for wave-based gameplay (edges, size, slope sliding)
 - [ ] Ensure kill plane works correctly for game over trigger
 - [ ] Connect kill plane to game over / highscore flow (instead of respawn)
+- [ ] Add procedural stars to the sky shader (dark sky with star sprinkles)
 - [ ] Consider environmental variations for later waves (future)
 
 ## Start Menu & Game Flow

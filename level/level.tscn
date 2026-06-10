@@ -16,7 +16,7 @@ curve = SubResource("Curve_44x8d")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6gtgk"]
 shader = ExtResource("6_44x8d")
-shader_parameter/top_color = Color(9.62615e-08, 0.14039022, 0.39602727, 1)
+shader_parameter/top_color = Color(0, 0, 0, 1)
 shader_parameter/bottom_color = Color(0.61960787, 0.7254902, 1, 1)
 shader_parameter/gradient_curve = SubResource("CurveTexture_ivpvi")
 

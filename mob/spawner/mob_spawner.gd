@@ -5,7 +5,7 @@ signal mob_spawned(mob)
 var mob_counter = 0
 var angle = 0.0
 var radius = 20
-var speed = 0.5
+var speed = 0.3
 var center = Vector3.ZERO
 
 
