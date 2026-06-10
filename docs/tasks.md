@@ -3,11 +3,11 @@
 ## Implementation Order
 
 1. New base level -- square platform with hovering spawners
-2. Core gameplay -- wave system, knockback, creature behavior
+2. Core gameplay -- wave system, knockback, vulture behavior
 3. Game over on fall -- kill plane ends game instead of respawn
-4. UI/HUD -- wave announcements, score
+4. UI/HUD -- countdown, wave announcements, score
 5. Scoring & highscore
-6. Glass walls, countdowns, cinematic intro
+6. Cinematic intro
 7. Split-screen multiplayer
 8. Network multiplayer
 
@@ -21,7 +21,7 @@ Instructions and preferences from the user:
 - Do not push to repo unless explicitly asked
 - Changes to `game.gd` and `game.tscn` are branch-specific (different logic per branch)
 - When porting changes across branches, `game.gd` and `game.tscn` need manual adaptation (different scene structures per branch)
-- Glass walls, countdowns, scoreboard are lower priority -- basic gameplay first
+- Glass walls, countdowns, scoreboard are lower priority -- basic gameplay first (glass walls moved to future additions)
 - Keep things simple for the basic gameplay, complexity can be added later
 
 ## Code Notes
@@ -43,13 +43,13 @@ Key locations in the existing codebase to be aware of:
 - [ ] Define wave states: `INTRO`, `CALM`, `COUNTDOWN`, `COMBAT`, `WAVE_END`, `GAME_OVER`
 - [ ] Implement wave counter (Wave 1, Wave 2, ...)
 - [ ] Implement wave timer (countdown during combat phase)
-- [ ] Scale creature spawn count per wave (e.g. base + N per wave)
-- [ ] Clear or despawn remaining creatures when wave timer ends
-- [ ] Trigger calm phase after wave ends (walls rebuild, brief pause)
-- [ ] Trigger next wave after calm phase
+- [ ] Scale vulture spawn count per wave (e.g. base + N per wave)
+- [ ] Clear or despawn remaining vultures when wave timer ends
+- [ ] Trigger calm phase after wave ends (brief pause)
+- [ ] Trigger next wave after calm phase (5-second countdown then spawners activate)
 - [ ] Remove or replace the existing single round timer with the wave system
 
-## Glass Wall Barrier
+## Glass Wall Barrier (Future Addition)
 
 - [ ] Create glass wall mesh/model around the platform perimeter
 - [ ] Add collision to the glass walls (StaticBody3D + CollisionShape3D)
@@ -63,7 +63,7 @@ Key locations in the existing codebase to be aware of:
 
 - [ ] Create a camera path (Path3D + PathFollow3D or AnimationPlayer)
 - [ ] Animate camera flying over and around the level
-- [ ] Show spawners, platform, glass walls, and the void during flyover
+- [ ] Show spawners, platform, and the void during flyover
 - [ ] Transition camera smoothly from cinematic to player's first-person view
 - [ ] Disable player input during cinematic
 - [ ] Start the first wave after cinematic ends
@@ -71,20 +71,18 @@ Key locations in the existing codebase to be aware of:
 
 ## Creature Behavior
 
-- [ ] Implement player targeting (creatures move toward the player)
-- [ ] Make bats follow the player in both horizontal (XZ) and vertical (Y) directions, not just XZ
-- [ ] Add knockback on creature-player contact (push player away from creature)
-- [ ] Tune knockback force so creatures can push the player off edges over time
-- [ ] Prevent creatures from spawning inside the glass walls (spawn outside barrier)
-- [ ] Scale number of creatures spawned per wave
-- [ ] Creatures enter through the broken glass walls when combat starts
-- [ ] Handle creature cleanup at end of wave (despawn, death animation, or flee)
+- [ ] Implement player targeting (vultures move toward the player)
+- [ ] Make vultures follow the player in both horizontal (XZ) and vertical (Y) directions, not just XZ
+- [ ] Add knockback on vulture-player contact (push player away from vulture)
+- [ ] Tune knockback force so vultures can push the player off edges over time
+- [ ] Scale number of vultures spawned per wave
+- [ ] Handle vulture cleanup at end of wave (despawn, death animation, or flee)
 
 ## Spawner Behavior
 
-- [ ] Spawners activate at the start of each wave's countdown phase
-- [ ] Spawners produce creatures outside the glass wall perimeter
-- [ ] Spawner spawn rate increases with wave number (more creatures per wave)
+- [ ] Spawners activate after 5-second countdown
+- [ ] Spawners produce vultures that fly toward the platform
+- [ ] Spawner spawn rate increases with wave number (more vultures per wave)
 - [ ] Spawner circular hovering movement (already implemented)
 - [ ] Spawner collision (already implemented)
 - [ ] Add raycast to spawner and make it always look at the player
@@ -96,7 +94,7 @@ Key locations in the existing codebase to be aware of:
 - [ ] Move score counter label from game.tscn into HUD scene
 - [ ] Move round timer label from game.tscn into HUD scene
 - [ ] Wave announcement display ("Wave 1", "Wave 2", ...) -- large text, fades after a few seconds
-- [ ] 5-second countdown overlay before glass walls shatter
+- [ ] 5-second countdown overlay before wave starts (spawners activate after countdown)
 - [ ] Wave number display during gameplay
 - [ ] Game over screen with final score and wave reached
 - [ ] Highscore entry: name input field on game over screen
@@ -104,7 +102,7 @@ Key locations in the existing codebase to be aware of:
 
 ## Scoring & Highscore
 
-- [ ] Award points per creature killed
+- [ ] Award points per vulture killed
 - [ ] Track score per wave and cumulative total
 - [ ] Display wave score summary between waves
 - [ ] Persist highscores locally (file for desktop, localStorage for web)
@@ -115,10 +113,11 @@ Key locations in the existing codebase to be aware of:
 ## Audio (Future)
 
 - [ ] Spawner ambient hum / mechanical sound
-- [ ] Glass wall shatter sound effect
-- [ ] Glass wall rebuild sound effect
+- [ ] Glass wall shatter sound effect (future)
+- [ ] Glass wall rebuild sound effect (future)
 - [ ] Wave start announcement sound
 - [ ] Creature sounds (idle, attacking, death)
+- [ ] Countdown tick sound
 - [ ] Ambient tension music that escalates with wave number
 - [ ] Game over sound/music
 
@@ -141,7 +140,7 @@ Key locations in the existing codebase to be aware of:
 ## Split-Screen Multiplayer
 
 - [ ] Adapt wave system for two players
-- [ ] Both players share the same wave state and glass walls
+- [ ] Both players share the same wave state
 - [ ] Track individual scores or shared score (decide)
 - [ ] Game ends when the last player falls off
 - [ ] Adapt game over / highscore for multiplayer
