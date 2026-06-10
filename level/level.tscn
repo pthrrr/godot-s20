@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://ott4g1nwruvd" path="res://level/platform.tres" id="1_feb5d"]
 [ext_resource type="Script" uid="uid://c43qsv5oisr35" path="res://level/level.gd" id="1_i2041"]
 [ext_resource type="Resource" uid="uid://ds24g87pr6rqr" path="res://player/player_1_controls.tres" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://cnebjo00yac68" path="res://mob/spawner/mob_spawner_3d.tscn" id="6_crycw"]
+[ext_resource type="PackedScene" uid="uid://cnebjo00yac68" path="res://mob/spawner/mob_spawner.tscn" id="6_crycw"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1
@@ -17,7 +17,7 @@ fog_density = 0.0055
 fog_height = -4.0
 fog_height_density = 0.35
 
-[node name="Level1" type="Node3D" unique_id=1007569404]
+[node name="Level" type="Node3D" unique_id=1007569404]
 script = ExtResource("1_i2041")
 
 [node name="MobSpawner1" parent="." unique_id=2147029638 instance=ExtResource("6_crycw")]

@@ -27,8 +27,8 @@ func _on_mob_spawner_3d_mob_spawned(mob):
 	label_mob.text = "Mob: " + str(mob_counter)
 	
 	if mob_counter >= MAX_MOBS:
-		spawner1.get_node("Timer").stop()
-		spawner2.get_node("Timer").stop()
+		spawner1.get_node("SpawnTimer").stop()
+		spawner2.get_node("SpawnTimer").stop()
 	
 	mob.kill.connect(increase_score)
 	mob.died.connect(func(_player_index):
@@ -36,8 +36,8 @@ func _on_mob_spawner_3d_mob_spawned(mob):
 		mob_counter -= 1
 		label_mob.text = "Mob: " + str(mob_counter)
 		if mob_counter < MAX_MOBS:
-			spawner1.get_node("Timer").start()
-			spawner2.get_node("Timer").start()
+			spawner1.get_node("SpawnTimer").start()
+			spawner2.get_node("SpawnTimer").start()
 	)
 	do_poof(mob.global_position)
 
