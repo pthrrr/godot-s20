@@ -35,7 +35,7 @@ offset_left = 896.0
 offset_right = 1024.0
 offset_bottom = 69.0
 grow_horizontal = 2
-text = "00:30"
+text = "00:45"
 label_settings = SubResource("LabelSettings_fc0e3")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=13340807]

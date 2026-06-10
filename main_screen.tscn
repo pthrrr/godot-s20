@@ -50,5 +50,12 @@ layout_mode = 2
 theme = SubResource("Theme_0hkt3")
 text = "Start"
 
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1515535713]
+custom_minimum_size = Vector2(543, 115)
+layout_mode = 2
+theme = SubResource("Theme_0hkt3")
+text = "Exit"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
