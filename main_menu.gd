@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready() -> void:
-	$CenterContainer/VBoxContainer/StartButton.grab_focus()
+	%StartButton.grab_focus()
 
 
 func _unhandled_input(event):

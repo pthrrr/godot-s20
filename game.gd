@@ -61,6 +61,7 @@ func _on_kill_plane_body_entered(body):
 	#body.velocity = Vector3.ZERO
 	get_tree().paused = true
 	gameover_screen.visible = true
+	gameover_screen.get_node("CenterContainer/VBoxContainer/RestartButton").grab_focus()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	%MainMusic.stop()
 	%MenuMusic.play()

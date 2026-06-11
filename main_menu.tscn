@@ -59,6 +59,7 @@ theme = SubResource("Theme_0hkt3")
 text = "Resume"
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=447054353]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(543, 115)
 layout_mode = 2
 theme = SubResource("Theme_0hkt3")
