@@ -1,11 +1,13 @@
 extends Node2D
 
+static var music_position = 0.0
+
 var spawn_position_player: Vector3
 var spawn_position_player2: Vector3
 var countdown = 30
 var countdown_str = ""
 
-@onready var level = $HBoxContainer/SubViewportContainer/SubViewport/Level1
+@onready var level = $HBoxContainer/SubViewportContainer/SubViewport/Level
 @onready var timer_label = $TimerLabel
 @onready var round_timer = $RoundTimer
 @onready var main_screen: Control = $MainScreen
@@ -21,13 +23,13 @@ static var first_launch = true
 	"1": {
 		viewport = $"HBoxContainer/SubViewportContainer/SubViewport",
 		camera = $"HBoxContainer/SubViewportContainer/SubViewport/Camera3D",
-		player = $HBoxContainer/SubViewportContainer/SubViewport/Level1/Player,
+		player = $HBoxContainer/SubViewportContainer/SubViewport/Level/Player,
 		label = $"HBoxContainer/SubViewportContainer/SubViewport/Label",
 	},
 	"2": {
 		viewport = $"HBoxContainer/SubViewportContainer2/SubViewport",
 		camera = $"HBoxContainer/SubViewportContainer2/SubViewport/Camera3D",
-		player = $HBoxContainer/SubViewportContainer/SubViewport/Level1/Player2,
+		player = $HBoxContainer/SubViewportContainer/SubViewport/Level/Player2,
 		label = $"HBoxContainer/SubViewportContainer2/SubViewport/Label2",
 	}
 }
@@ -66,6 +68,7 @@ func _on_kill_plane_body_entered(body):
 		return
 	get_tree().paused = true
 	gameover_screen.visible = true
+	gameover_screen.get_node("CenterContainer/VBoxContainer/RestartButton").grab_focus()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	%MainMusic.stop()
 	%MenuMusic.play()

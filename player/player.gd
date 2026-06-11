@@ -22,9 +22,12 @@ func _unhandled_input(event):
 		var main_screen = get_tree().current_scene.get_node("MainScreen")
 		main_screen.visible = true
 		main_screen.get_node("CenterContainer/VBoxContainer/ResumeButton").visible = true
+		main_screen.get_node("CenterContainer/VBoxContainer/ResumeButton").grab_focus()
 		main_screen.get_node("CenterContainer/VBoxContainer/StartButton").text = "Restart"
-		get_tree().current_scene.get_node("MainMusic").stop()
-		get_tree().current_scene.get_node("MenuMusic").play()
+		var game = get_tree().current_scene
+		game.music_position = game.get_node("MainMusic").get_playback_position()
+		game.get_node("MainMusic").stop()
+		game.get_node("MenuMusic").play()
 		
 func _physics_process(delta):
 	const SPEED = 5.5
